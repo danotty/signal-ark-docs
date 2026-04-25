@@ -1,0 +1,39 @@
+---
+title: "Salesforce Integration"
+description: "Sync accounts and push intelligent tasks directly to Salesforce."
+---
+
+The SignalArk Salesforce integration enables bidirectional data syncing and intelligent task creation to turn buyer signals into immediate sales actions.
+
+## OAuth PKCE Flow & Environments
+
+SignalArk supports connecting to both Production and Sandbox Salesforce environments using a secure OAuth PKCE flow.
+
+1. Navigate to **Settings > Integrations**.
+2. Click **Connect** under Salesforce.
+3. Select your environment: **Production** or **Sandbox**.
+4. Authorize SignalArk in Salesforce.
+
+Tokens are stored securely per-workspace and feature single-flight refresh logic to ensure API reliability.
+
+## Sync Capabilities
+
+SignalArk supports pulling, pushing, or full bidirectional syncing of Salesforce objects:
+- **Accounts**: Mapped to SignalArk Accounts.
+- **Contacts**: Mapped to SignalArk Contacts.
+- **Opportunities**: Mapped to SignalArk Deals.
+
+You can manage sync directions and view mapping statistics directly from the Integration Manager.
+
+## CRM Push & Task Creation
+
+When pushing a signal to Salesforce, SignalArk does not create standard notes. Instead, it creates actionable **Tasks** to ensure your reps are prompted to take action.
+
+The push process:
+1. Resolves or creates the Salesforce Account based on the domain.
+2. Resolves or creates the Salesforce Contact.
+3. Creates a **Task** with a plain-text description containing the signal context, "Why Now" reasoning, and suggested outreach angles.
+
+<Warning>
+**Content Quality Guardrails**: Just like the HubSpot integration, Salesforce pushes are protected by strict quality checks. Pushes containing generic AI-generated insights or missing domains will be blocked to maintain CRM hygiene.
+</Warning>

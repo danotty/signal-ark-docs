@@ -1,0 +1,28 @@
+---
+title: "AI Message Generation"
+description: "Leverage LLMs to write personalized messages based on 'Why Now' signal context."
+---
+
+Generic outreach performs poorly. SignalArk uses Large Language Models (LLMs) to automatically draft highly personalized outreach messages rooted in the specific signals that triggered your attention.
+
+## Personalization Snippets
+
+Instead of relying solely on basic merge tags like `{{first_name}}`, SignalArk generates dynamic **Personalization Snippets**. 
+
+When an AI message is requested, the engine feeds the prospect's firmographic data, persona framing, and the specific **Why Now Context** from their Signal Timeline into the LLM. The output is an opening paragraph or complete message that explicitly states the reason for outreach (e.g., *"Noticed you just hired a new VP of Security and are expanding into the EU..."*).
+
+## Usage in Workflows
+
+AI message generation is available in two primary places:
+1. **Manual Sequence Steps:** While reviewing a queued email task, a rep can click "Generate AI Draft" to populate the composer.
+2. **Next Best Actions:** Automated recommendations often include pre-generated email drafts ready for rep review.
+
+## Credit Costs
+
+Because AI message generation utilizes advanced LLMs (like Gemini 2.5 Flash), it is a metered action. 
+- **AI Message Generation:** 1 Credit per message.
+- **Personalization Snippets:** 1 Credit per generation.
+
+<Note>
+If you run out of credits, the UI will disable the generation buttons and prompt you to purchase a top-up via Settings > Billing.
+</Note>

@@ -1,0 +1,31 @@
+---
+title: "Outreach Sequences"
+description: "Create and manage multi-step outreach flows for your enriched contacts."
+---
+
+Once SignalArk identifies a high-intent account and discovers the right contact, you can seamlessly transition to execution using **Outreach Sequences**.
+
+## Building a Sequence
+
+Sequences are multi-step workflows designed to engage prospects across multiple channels. Supported step types include:
+
+- **Automated Email:** Sent via your connected SMTP or CRM integration.
+- **LinkedIn Connect:** Reminders to send a connection request.
+- **LinkedIn Message:** Reminders to message an existing connection.
+- **Call / Task:** Manual to-dos for your sales reps.
+- **Delay:** Time buffers (e.g., wait 3 days) between actions.
+
+## Enrollment & Management
+
+You can enroll contacts into sequences directly from the Account Timeline, a specific Signal card, or via automated Next Best Actions.
+
+When a contact is enrolled, their status is tracked through the `outreach_enrollments` lifecycle:
+- **Active:** Currently processing steps.
+- **Paused:** Temporarily halted.
+- **Replied:** The prospect responded (auto-pauses the sequence).
+- **Bounced:** Email delivery failed.
+- **Completed:** All steps finished without a reply.
+
+## Tracking Outcomes
+
+SignalArk requires reps to log outcomes for completed sequences or replies (e.g., `booked_meeting`, `not_interested`, `wrong_person`). These outcomes feed back into the **Calibration Engine**, which adjusts your ICP and Signal scoring weights based on actual sales success, closing the loop between intelligence and execution.

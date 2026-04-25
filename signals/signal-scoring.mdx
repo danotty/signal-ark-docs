@@ -1,0 +1,35 @@
+---
+title: "Signal Scoring & Decay"
+description: "How SignalArk calculates intent and prioritizes your outreach."
+---
+
+Not all signals are created equal. SignalArk uses a sophisticated 5-dimension scoring model to evaluate every detected event, ensuring your sales team focuses on the most actionable opportunities.
+
+## The 5 Dimensions of Scoring
+
+Every signal is evaluated against these five criteria:
+
+1. **Intent / Budget Relevance:** Does this signal indicate actual buying intent or budget availability? (e.g., a Series B funding round scores higher than a generic blog post).
+2. **Actionability:** Can a sales rep use this signal to craft a compelling outreach message? 
+3. **Freshness:** When did the event happen? Signals lose value over time.
+4. **ICP Fit:** How closely does the associated account match your Ideal Customer Profile?
+5. **Compounding (Stacking):** Is this an isolated event, or part of a broader pattern? Signals receive a boost if the account has diverse recent signals from other sources.
+
+## Priority Bands
+
+Based on the composite score (0-100), signals are categorized into priority bands:
+
+- **High Priority (80+):** Imminent buying intent. These trigger GTME plays and Monday 8 prioritization.
+- **Worth Outreach (60-79):** Solid rationale for contact. Good for standard sequence enrollment.
+- **Monitor (40-59):** Weak or early-stage signals. Kept on the radar to see if intent compounds.
+- **Low Priority (&lt;40):** Filtered out of standard views to reduce noise.
+
+## Signal Decay
+
+Intent is highly time-sensitive. SignalArk applies an automated decay curve to signal scores based on their source type.
+
+- **Fast Decay (e.g., Website Visit, Social Mention):** Half-life of 3-7 days.
+- **Medium Decay (e.g., Job Posting, Event Attendance):** Half-life of 14-30 days.
+- **Slow Decay (e.g., Funding Round, Exec Hire):** Half-life of 60-90 days.
+
+*You can configure custom decay overrides in your ICP settings for specific intelligence lenses (e.g., Cyber Radar or SaaS Growth).*

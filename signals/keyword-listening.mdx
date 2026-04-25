@@ -1,0 +1,37 @@
+---
+title: "Keyword Listening"
+description: "Track exact phrases, exclude noise, and route specific mentions to your timeline."
+---
+
+The Keyword Listener allows you to track custom terminology—like your competitors' names, specific industry pain points, or niche technologies—across SignalArk's data sources.
+
+## Configuring Rules
+
+You can access Keyword Listening under the **Signals > Keywords** tab. A keyword rule consists of:
+
+<Steps>
+  <Step title="Target Keywords">
+    Enter exact phrases or keywords. SignalArk uses exact phrase matching to ensure high relevance.
+  </Step>
+  <Step title="Excluded Terms">
+    Filter out noise. For example, if tracking the company "Apple", you might exclude "fruit", "orchard", and "juice".
+  </Step>
+  <Step title="Source Scope">
+    Limit the search to specific sources. You might want to track "Data Breach" only in News and SEC filings, but ignore it on Reddit.
+  </Step>
+</Steps>
+
+## Rule Statuses & Preview
+
+Rules operate in one of three states:
+- **Draft:** Being configured, not actively scanning.
+- **Active:** Continuously evaluated against incoming data via the Post-Ingestion Pipeline.
+- **Muted:** Temporarily paused due to high noise or irrelevance.
+
+<Tip>
+Before activating a rule, use the **Preview** function to run the query against historical data. This helps you calibrate your excluded terms and prevent flooding your workspace with false positives.
+</Tip>
+
+## Routing via Play Templates
+
+When an active keyword rule triggers a match, it is classified as a high-intent market signal. You can route these specific hits directly to your team by setting up a **High Intent Keyword Match** Play Template, which delivers the signal via Slack or Webhook instantly.

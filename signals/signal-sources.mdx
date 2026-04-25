@@ -1,0 +1,64 @@
+---
+title: "Signal Sources"
+description: "The 15+ real-time data sources SignalArk monitors for buyer intent."
+---
+
+SignalArk casts a wide net across the public internet, proprietary databases, and social platforms to detect buyer intent. 
+
+## The Master Source List
+
+Our continuous ingestion cron jobs monitor the following sources:
+
+<CardGroup cols={3}>
+  <Card title="Job Boards" icon="briefcase">
+    Hiring velocity, new leadership roles, and tech stack mentions in job descriptions.
+  </Card>
+  <Card title="News & Press" icon="newspaper">
+    Funding rounds, M&A, product launches, and regulatory compliance news.
+  </Card>
+  <Card title="LinkedIn" icon="linkedin">
+    Company page updates, executive movements, and employee headcount growth.
+  </Card>
+  <Card title="Twitter / X" icon="x-twitter">
+    Brand mentions, executive posts, and competitor complaints.
+  </Card>
+  <Card title="Reddit" icon="reddit">
+    Niche community discussions and tool recommendations.
+  </Card>
+  <Card title="HackerNews" icon="y-combinator">
+    Technical trends, "Ask HN", and startup launches.
+  </Card>
+  <Card title="GitHub" icon="github">
+    Open-source technology adoption, starring, and developer activity.
+  </Card>
+  <Card title="G2 & Review Sites" icon="star">
+    Competitor reviews, category interest, and feature complaints.
+  </Card>
+  <Card title="Product Hunt" icon="product-hunt">
+    New tool adoption, upvoting, and maker activity.
+  </Card>
+  <Card title="Tech Dependencies" icon="npm">
+    npm, PyPI trends, and package installations.
+  </Card>
+  <Card title="Financial Data" icon="building-columns">
+    Crunchbase rounds and SEC filings.
+  </Card>
+  <Card title="Infrastructure" icon="server">
+    Shodan port scans, tech installs, and certificate transparency logs.
+  </Card>
+  <Card title="Developer Forums" icon="stack-overflow">
+    Stack Overflow questions and dev.to articles indicating technical challenges.
+  </Card>
+</CardGroup>
+
+## Social Monitoring
+
+Beyond broad market signals, SignalArk allows you to set up specific **Social Monitors** to track past champions, key executives, and competitor hashtags across LinkedIn, X, and Reddit. High-warmth engagements are automatically promoted to your sales pipeline.
+
+## Keyword Listening
+
+Define exact phrases, exclude noise terms, and scope rules to specific sources (e.g., only track "SOC2 compliance" in News and Job Postings). Keyword hits are classified as high-intent market signals.
+
+## External Ingestion (Flint Integration)
+
+SignalArk partners with external data providers like **Flint** to ingest proprietary signals via our API key authenticated `v1/signals/ingest` and `v1/social/ingest` endpoints. Externally ingested signals pass through the same deduplication, AI classification, and scoring pipeline as native signals.

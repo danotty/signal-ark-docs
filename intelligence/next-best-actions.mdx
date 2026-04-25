@@ -1,0 +1,37 @@
+---
+title: "Next Best Actions (NBA)"
+description: "Rule-based, AI-driven action recommendations personalized for every account."
+---
+
+The Next Best Actions (NBA) engine acts as an intelligent assistant for your sales reps, automatically evaluating the state of an account and recommending the exact next step to take.
+
+Unlike GTME Plays—which identify strategic market conditions—NBAs focus on workflow execution and data hygiene.
+
+## How the Engine Works
+
+The NBA engine evaluates multiple dimensions of an account:
+- Recent signals and intent scores
+- Active and inactive GTME plays
+- Current deal stages
+- Contact coverage and persona matching
+- Enrichment state (e.g., missing data)
+
+Based on these dimensions, the engine surfaces prioritized recommendations.
+
+## Action Types
+
+Common recommended actions include:
+- `add_contact`: "You have high-intent signals but no matching persona contacts."
+- `enroll_sequence`: "This account is a strong ICP fit with high warmth—enroll in an outbound sequence."
+- `run_enrichment`: "Account data is stale. Run waterfall enrichment to update."
+- `create_deal`: "Intent score has crossed 85; promote this to pipeline."
+- `send_play`: "A Competitive Displacement play is active. Review the brief."
+- `schedule_call`: "Prompt follow-up on recent social engagement."
+
+## User Workflow
+
+NBAs are prominently displayed on the **Overview** tab of the Account Detail page.
+
+Reps can interact with an NBA in two ways:
+1. **Complete Action**: Takes the rep directly to the required workflow (e.g., opens the sequence enrollment modal).
+2. **Dismiss**: Removes the recommendation if it's not relevant, feeding back into the engine's logic.

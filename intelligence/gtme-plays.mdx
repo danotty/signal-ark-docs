@@ -1,0 +1,62 @@
+---
+title: "GTME Plays"
+description: "Understand the 7 Go-To-Market Execution plays and how they score confidence to drive precise outreach."
+---
+
+SignalArk’s GTME (Go-To-Market Execution) Plays are an additive recommendation system that sits on top of existing account scoring and signals. They do not replace your standard pipeline scoring, but act as an advisory overlay to highlight specific, actionable outreach motions.
+
+## The 7 Play Types
+
+Our detection engine currently evaluates accounts against 7 distinct play types:
+
+1. **Competitor Crisis Displacement**: Competitor breach, lawsuit, or regulatory issue + tech overlap.
+2. **Pricing Displacement**: Competitor pricing changes + known account exposure.
+3. **Executive Change Window**: A new CISO, CIO, CRO, or VP has recently joined the account.
+4. **Funding & Expansion Blitz**: A recent funding round + active GTM hiring + expansion clusters.
+5. **Compliance & Security Urgency**: Looming compliance deadlines + peer breaches + active audits.
+6. **Support Instability Displacement**: Widespread competitor layoffs + service continuity complaints.
+7. **Product Launch Counter**: Competitor product launch + market overlap.
+
+## Confidence Scoring & Evidence
+
+Every play comes with a **Confidence Score** indicating how strong the recommendation is. Our confidence formula relies on transparent evidence evaluation:
+
+- **Baseline Score**: 15 points
+- **Direct Evidence**: Up to 40 points (20 per condition)
+- **Inferred Evidence**: Up to 20 points (8 per condition)
+- **Signal Quality**: Up to 20 points
+- **Supporting Evidence**: Up to 10 points
+
+Each play has a strict **confidence ceiling**. For example, a crisis displacement play caps at 55 points without direct evidence, but can reach 90 points if direct evidence is found. Play confidence naturally decays over time based on the specific play window (usually 14 to 60 days).
+
+<Note>
+**Direct vs. Inferred:** SignalArk visibly labels evidence as *Direct* (e.g., an explicit mention in a news article) or *Inferred* (e.g., an assumption based on industry trends). This transparency helps reps trust the platform.
+</Note>
+
+## Precision Hardening & Disqualifiers
+
+To prevent false positives and maintain trust, the GTME engine employs multiple layers of precision hardening.
+
+### 6 Universal Disqualifiers
+Plays are suppressed if they trip any of these rules:
+- `stale_trigger_evidence`: The triggering signal is too old.
+- `recently_expired_same_play`: A similar play recently expired.
+- `recently_actioned_same_play`: The account was recently actioned for this play.
+- `poor_icp_fit`: The account doesn't match your Ideal Customer Profile.
+- `all_evidence_fuzzy`: All matching evidence is highly inferred or fuzzy.
+- `no_persona_contact_match`: Soft penalty if no relevant contacts are found.
+
+### Trigger Certainty & Action Fit
+- **Trigger Certainty (0-95)**: An evidence-driven score measuring how likely the triggering situation *actually* exists.
+- **Action Fit (0-95)**: A practicality-driven score indicating how actionable the play is for your team right now.
+
+### Shadow Monitoring
+Plays that are within 10 points of the required confidence floor or suppressed by a single runtime disqualifier are captured as "shadow plays". They aren't surfaced to reps but are monitored by admins for engine calibration.
+
+## Feedback Loop
+
+Users can calibrate the engine by providing feedback on detected plays:
+- `useful_play`: Increases the play's weight for similar accounts.
+- `not_relevant`: Deprioritizes similar combinations.
+- `monitor_only`: Keeps the play active without penalizing it.
+- `already_actioned`: Marks the play as successful and clears it from the active list.

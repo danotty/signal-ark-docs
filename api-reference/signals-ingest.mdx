@@ -1,0 +1,28 @@
+---
+title: "Ingest Market Signals"
+openapi: "POST /v1/signals/ingest"
+description: "Batch ingest standard market signals into the SignalArk pipeline."
+---
+
+Use this endpoint to push batch market signals (news, funding, jobs, tech stack changes) into SignalArk.
+
+### Request Body
+
+Provide an array of `ExternalSignal` objects under the `signals` key. Max 100 signals per batch.
+
+**Required Fields per Signal:**
+- `company_name` (string)
+- `company_domain` (string) - Critical for account matching.
+- `signal_title` (string)
+- `signal_source` (enum: `funding`, `job_posting`, `linkedin`, `news`, `review_site`, `tech_install`, `twitter`, `web_visit`, `other`)
+
+**Optional Fields:**
+- `detected_at` (ISO 8601 Date)
+- `signal_family` (string) - Recommended for accurate classification.
+- `description` / `notes` (string)
+- Firmographic hints: `industry`, `funding_amount`, `employee_count`, `location`
+- `hotness_score` (number)
+
+### Response
+
+The response includes processing statistics, letting you know how many signals were accepted, how many were deduplicated, and how many failed validation.

@@ -1,0 +1,29 @@
+---
+title: "Ingest Social Signals"
+openapi: "POST /v1/social/ingest"
+description: "Batch ingest social engagement events into the Social Lead pipeline."
+---
+
+Use this endpoint to push social engagement data (likes, comments, mentions) into the dedicated Social Engagement pipeline.
+
+High-warmth, ICP-qualified leads from this pipeline are automatically promoted to standard Sales Deals/Accounts.
+
+### Request Body
+
+Provide an array of `ExternalSocialSignal` objects under the `events` key.
+
+**Required Fields per Event:**
+- `platform` (string: e.g., `linkedin`, `twitter`, `hackernews`)
+- `engagement_type` (string: e.g., `like`, `comment`, `repost`)
+
+**Recommended Fields:**
+- `engager_profile_url` - Crucial for contact resolution.
+- `company_domain` - Crucial for account matching.
+- `warmth_hint` (integer 0-100) - Overrides the baseline warmth score for this engagement type.
+
+**Optional Fields:**
+- `engager_name`, `engager_title`, `engager_company`
+- `engagement_content`, `post_content`, `post_url`
+- `engagement_date`
+
+### Response

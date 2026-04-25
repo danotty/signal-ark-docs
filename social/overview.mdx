@@ -1,0 +1,29 @@
+---
+title: "Social Signals Overview"
+description: "Monitor your market on X, LinkedIn, Reddit, and HackerNews to capture warm leads."
+---
+
+SignalArk doesn't just look at firmographic data and job boards; it actively monitors the social web to catch buyer intent where conversations actually happen.
+
+Our social intelligence engine tracks engagements across four major platforms:
+- **X (Twitter)**
+- **LinkedIn**
+- **Reddit**
+- **HackerNews**
+
+## How Social Signals Differ
+
+Traditional market signals (like a funding round or a job posting) are tied directly to an Account. 
+
+Social Signals are primarily tied to a **Person** (the engager), and then resolved to an Account. Because of this, social signals flow into a dedicated `socialEngagementEvents` pipeline rather than the traditional market radar.
+
+## External Ingestion (Flint)
+
+Our social ingestion is powered by our external data partner, Flint. Flint continuously monitors your defined targets and submits batched social engagement events directly to our API (`POST /v1/social/ingest`).
+
+When an event is ingested, SignalArk automatically:
+1. Deduplicates the engagement.
+2. Calculates a **Warmth Score** based on the type of interaction.
+3. Resolves the engager to a company domain.
+4. Checks the company against your ICP profiles.
+5. Auto-promotes high-warmth, ICP-qualified leads directly into your sales pipeline.

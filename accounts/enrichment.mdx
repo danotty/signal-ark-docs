@@ -1,0 +1,43 @@
+---
+title: "Account & Contact Enrichment"
+description: "Learn how SignalArk automatically builds firmographic profiles and discovers contacts."
+---
+
+SignalArk’s enrichment pipeline ensures that your accounts have the necessary firmographic and technographic data to accurately calculate ICP fit and route Go-To-Market plays.
+
+## Firmographic Enrichment Pipeline
+
+Our platform uses a waterfall approach to enrichment, ensuring high match rates while managing costs effectively.
+
+<Steps>
+  <Step title="Primary Provider: TheCompaniesAPI (TCA)">
+    For all firmographic data (industry, employee count, location, revenue estimates), **TheCompaniesAPI** is queried first. It provides high-quality company data at the best margin.
+  </Step>
+  <Step title="Fallback Provider: People Data Labs (PDL)">
+    If TCA cannot fulfill the request or returns incomplete data for critical fields, the pipeline falls back to **People Data Labs**.
+  </Step>
+  <Step title="Tech Stack Scanner">
+    SignalArk automatically detects the technologies installed on the target account's website, which is crucial for displacement and complementary GTME plays.
+  </Step>
+</Steps>
+
+<Note>
+Enrichment is automatically triggered when an account is created, imported via CSV, or processed through the ABM Intake pipeline.
+</Note>
+
+## Contact Auto-Discovery
+
+Finding the right persona to contact is just as important as identifying the right account. SignalArk includes an automated contact discovery engine.
+
+When an account shows high intent or is prioritized for outreach:
+1. **Persona Search:** We query PDL (as TCA does not support people search) to find contacts matching your configured target personas (e.g., CISO, VP of Sales, CFO).
+2. **Email Discovery:** Once a contact is identified, SignalArk uses **Hunter.io** alongside pattern guessing to resolve and verify their corporate email address.
+
+## Credit Metering
+
+Enrichment actions consume credits from your workspace balance:
+- **Waterfall Firmographic Enrich:** 1 Credit
+- **LinkedIn Profile Enrich:** 1 Credit
+- **Contact/People Search:** 3 Credits
+
+You can view your total usage and limits in **Settings > Billing**.

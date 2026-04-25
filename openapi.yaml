@@ -1,0 +1,145 @@
+openapi: 3.0.0
+info:
+  title: SignalArk Ingestion API
+  version: 1.0.0
+  description: >
+    API for external partners to ingest market and social signals into the SignalArk pipeline.
+servers:
+  - url: https://www.signalark.app/_api
+    description: Production Server
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Use format `Bearer sak_your_api_key_here`
+security:
+  - ApiKeyAuth: []
+paths:
+  /v1/signals/ingest:
+    post:
+      summary: Ingest Market Signals
+      description: Batch ingest standard market signals. Triggers auto-deduplication, AI classification, account matching, and ICP filtering.
+      operationId: ingestSignals
+      tags:
+        - Ingestion
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - signals
+              properties:
+                signals:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - company_name
+                      - signal_name
+                      - source
+                    properties:
+                      company_domain:
+                        type: string
+                      company_name:
+                        type: string
+                      signal_name:
+                        type: string
+                      description:
+                        type: string
+                      source:
+                        type: string
+                        enum:
+                          - funding
+                          - job_posting
+                          - linkedin
+                          - news
+                          - review_site
+                          - tech_install
+                          - twitter
+                          - web_visit
+                          - other
+                      source_url:
+                        type: string
+                      detected_at:
+                        type: string
+                        format: date-time
+      responses:
+        "200":
+          description: Ingestion successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  batchId:
+                    type: string
+                  stats:
+                    type: object
+                    properties:
+                      accepted:
+                        type: integer
+                      deduplicated:
+                        type: integer
+                      rejected:
+                        type: integer
+  /v1/social/ingest:
+    post:
+      summary: Ingest Social Signals
+      description: Batch ingest social engagement events. High-warmth, ICP-qualified leads are automatically promoted to the pipeline.
+      operationId: ingestSocialSignals
+      tags:
+        - Ingestion
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - events
+              properties:
+                events:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - platform
+                      - engagement_type
+                    properties:
+                      platform:
+                        type: string
+                      engagement_type:
+                        type: string
+                      engager_name:
+                        type: string
+                      engager_profile_url:
+                        type: string
+                      engager_company:
+                        type: string
+                      company_domain:
+                        type: string
+                      post_url:
+                        type: string
+                      warmth_hint:
+                        type: integer
+                        description: Optional base warmth score override (0-100)
+      responses:
+        "200":
+          description: Social ingestion successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  batchId:
+                    type: string
+                  promotedToPipeline:
+                    type: integer

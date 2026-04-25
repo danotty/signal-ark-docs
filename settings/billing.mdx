@@ -1,0 +1,35 @@
+---
+title: "Billing & Plans"
+description: "Manage your SignalArk subscription and monitor AI credit usage."
+---
+
+SignalArk offers flexible plans designed to scale with your Go-To-Market team.
+
+## Subscription Plans
+
+- **Starter ($79/mo)**: Perfect for small teams getting started with intent-based selling. Includes 50 monthly AI credits.
+- **Growth ($199/mo)**: Unlocks the Account Activation Briefs, Revenue Signal Proofs, and includes 500 AI credits.
+- **Pro ($399/mo)**: Designed for scale, offering advanced integrations and 2000 AI credits.
+
+*Annual pricing is available at a 20% discount.*
+
+## The Credit System
+
+Because SignalArk heavily utilizes Large Language Models (LLMs) and premium external data APIs (like PDL and Exa) to generate high-quality intelligence, specific actions consume **Credits**.
+
+### Action Credit Costs
+
+| Action | Credits | Description |
+| :--- | :--- | :--- |
+| `waterfall_enrich` | 1 | Standard firmographic enrichment via TCA/PDL |
+| `ai_message_gen` | 1 | Generating an AI outreach message |
+| `why_now_brief` | 2 | Generating an AI "Why Now" account brief |
+| `job_posting_scan` | 3 | Deep scanning job boards for tech stack signals |
+| `brief_generation` | 3 | Generating a full Account Activation Brief (Gemini 2.5 Pro) |
+| `lookalike_discovery` | 5 | Discovering TAM expansion targets via LLM + Exa |
+| `bulk_scan_per_account` | 5 | Deep multi-source scan of a single account |
+
+### Managing Credits
+If you run low on credits, you can purchase one-time **Credit Packs** directly from the Billing page. All credit transactions are securely handled via Stripe.
+
+When your balance is insufficient for a specific action, the UI will disable the action button and display a warning.

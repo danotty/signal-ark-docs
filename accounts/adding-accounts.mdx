@@ -1,0 +1,48 @@
+---
+title: "Adding Accounts"
+description: "Bring your target accounts into SignalArk via ABM intake, CSV, or domain pasting."
+---
+
+To begin monitoring intent and detecting signals, you need to add target accounts to your SignalArk workspace. SignalArk offers multiple ways to ingest accounts, all of which automatically trigger our enrichment pipeline.
+
+## 1. Instant Value Onboarding (Paste Domains)
+
+The fastest way to start using SignalArk is by simply pasting a list of domains. This is the primary onboarding flow, allowing you to see value in minutes.
+
+<Steps>
+  <Step title="Paste Domains">
+    Navigate to **Accounts > Add Accounts** and select the **Paste Domains** option. Paste up to 100 company domains (e.g., `acme.com`).
+  </Step>
+  <Step title="Auto-Enrichment">
+    SignalArk immediately processes these domains, resolving them to complete firmographic profiles using our primary enrichment provider, TheCompaniesAPI (TCA).
+  </Step>
+  <Step title="Instant Scanning">
+    Once enriched, the accounts are queued for initial signal scanning to populate your Monday 8 dashboard.
+  </Step>
+</Steps>
+
+## 2. Advanced ABM Intake Pipeline
+
+For mature sales teams, the **ABM Intake** pipeline allows you to bring external account lists and turn them into first-class SignalArk intelligence objects with staged enrichment.
+
+<Card title="Multi-Tier Matching" icon="bullseye">
+  The intake engine resolves accounts using a confidence-based waterfall: Exact Domain (1.0) → LinkedIn URL (0.85) → Domain-derived Name (0.65) → Exact Name (0.55). Matches below 0.7 confidence are flagged for manual review to ensure data integrity.
+</Card>
+
+When creating an intake batch, you can choose an enrichment tier:
+- **Resolve Only (Free):** Matches accounts without using credits.
+- **Resolve & Enrich (1 Credit):** Pulls fresh firmographic data.
+- **Resolve, Enrich & Score:** Adds automated ICP scoring against your profiles.
+- **Full Pipeline:** Enables Go-To-Market Execution (GTME) play detection.
+
+## 3. CSV Import
+
+You can upload traditional CSV files containing your target account lists. The SignalArk quote-aware parser automatically detects headers like `domain`, `website`, `company`, and `linkedin_url`. 
+
+<Tip>
+Including the LinkedIn Company URL significantly improves match rates and reduces the need for manual review.
+</Tip>
+
+## 4. Manual Creation
+
+If you are researching a specific prospect, you can manually create an account by entering the domain and company name. As with all creation methods, manual entry automatically triggers the enrichment pipeline to gather industry, size, and location data.

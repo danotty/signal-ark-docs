@@ -1,0 +1,55 @@
+---
+title: "Cyber Radar"
+description: "Detect cybersecurity exposures, compliance risks, and tech stack vulnerabilities."
+---
+
+The **Cyber Radar** lens is engineered specifically for cybersecurity vendors and managed service providers (MSPs). It monitors the web for signs of technical vulnerability, regulatory pressure, and security posture changes at target accounts.
+
+## Signal Taxonomy
+
+This lens tracks 19 highly specific cyber signal families across 5 core categories:
+
+### 1. Incident & Exposure
+- `data_breach`
+- `ransomware_attack`
+- `credential_leak`
+- `dark_web_mention`
+
+### 2. Compliance & Regulatory
+- `compliance_audit_failure`
+- `gdpr_fine`
+- `new_regulatory_framework`
+
+### 3. Tech Stack & Infrastructure
+- `legacy_system_eol` (End of Life)
+- `cloud_migration_active`
+- `vulnerable_tech_detected`
+
+### 4. Expansion & Footprint
+- `new_data_center`
+- `remote_work_expansion`
+
+### 5. Market Pressure
+- `competitor_breach`
+- `supply_chain_compromise`
+
+## Trust Scoring Model
+
+Because cyber signals can often be noisy or unverified (e.g., a random tweet about a breach), the Cyber Radar lens employs a rigorous **Trust Scoring Model** to prevent false alarms.
+
+The `trustComposite` score is calculated using three factors:
+1. **Source Authority:** A CVE database report ranks much higher than an anonymous forum post.
+2. **Extraction Certainty:** How confident is the AI that this event actually occurred?
+3. **Corroboration:** Has this event been detected across multiple independent sources?
+
+## Confidence Tiers & Alert Eligibility
+
+Signals are grouped into Confidence Tiers based on their Trust Composite:
+
+- **Tier 1 (Verified):** High authority, highly corroborated. Fully eligible for automated alerts and CRM push.
+- **Tier 2 (Probable):** Moderate authority. Pushed to the radar for human review.
+- **Tier 3 (Unverified):** Low authority. Suppressed from alerts, kept for compounding context only.
+
+<Warning>
+**CRM Push Quality Gates:** A cyber signal must be Tier 1 or manually reviewed by a human before it can be pushed to HubSpot or Salesforce. This prevents your CRM from being polluted with unverified breach rumors.
+</Warning>

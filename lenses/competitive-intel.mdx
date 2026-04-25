@@ -1,0 +1,57 @@
+---
+title: "Competitive Intelligence"
+description: "Monitor your competitors for strategic threats and displacement opportunities."
+---
+
+The **Competitive Intelligence** lens allows your Go-To-Market team to keep a close eye on competitor movements, pricing changes, product launches, and customer frustration—turning competitive threats into pipeline generation opportunities.
+
+## Signal Families
+
+This lens actively tracks 9 specific signal families focused purely on the competitive landscape:
+
+1. `competitor_pricing_change`
+2. `competitor_product_launch`
+3. `competitor_executive_departure`
+4. `competitor_layoffs`
+5. `competitor_m_and_a`
+6. `customer_complaint_social`
+7. `negative_g2_review`
+8. `competitor_compliance_issue`
+9. `competitor_security_breach`
+
+## The 5 Scoring Dimensions
+
+Signals in this lens are scored differently than standard sales signals. The competitive scoring engine uses the following dimensions:
+
+- **Overlap (0-25):** How closely does this competitor overlap with your Ideal Customer Profile (ICP) and feature set?
+- **Recency (0-20):** Standard freshness decay.
+- **Threat (0-25):** Does this event pose a direct threat to your market share (e.g., a major feature launch)?
+- **Significance (0-15):** The scale of the event (e.g., a small bug vs. a massive data breach).
+- **Actionability (0-15):** Can your sales team immediately launch a displacement campaign based on this?
+
+## Tracked Competitors
+
+You define your competitive landscape in the **Tracked Competitors** table. Here, you list domains and aliases for your key competitors. SignalArk uses this list to filter and classify global market noise down to just the entities you care about.
+
+<Tip>
+Ensure you add all known alternate domains and old company names for your competitors to maximize signal coverage.
+</Tip>
+
+## Available Actions
+
+When a competitive signal is detected, the following actions are available directly from the card:
+
+<CardGroup cols={2}>
+  <Card title="Watch" icon="eye">
+    Pin the signal to your watchlist for continuous monitoring.
+  </Card>
+  <Card title="Brief" icon="file-lines">
+    Generate an AI-powered Competitive Displacement Brief for your reps.
+  </Card>
+  <Card title="Compare" icon="scale-balanced">
+    Run a side-by-side feature and sentiment comparison.
+  </Card>
+  <Card title="Escalate" icon="arrow-up-right-dots">
+    Send a high-priority alert to the product marketing or leadership team via Slack.
+  </Card>
+</CardGroup>

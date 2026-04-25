@@ -1,0 +1,31 @@
+---
+title: "Slack Integration"
+description: "Route high-priority signals directly to your team's Slack channels."
+---
+
+Deliver real-time intelligence to where your team already works using the SignalArk Slack integration.
+
+## Setup
+
+1. Go to **Settings > Integrations**.
+2. Click **Connect Slack**.
+3. Authorize the SignalArk Bot.
+
+## Block Kit Formatting
+
+SignalArk doesn't just send plain text alerts. We use rich Slack **Block Kit** formatting to deliver highly readable, structured signal alerts.
+
+A typical Slack alert includes:
+- **Signal Summary**: The core event (e.g., "Acme Corp raised $10M Series A").
+- **Why Now**: The AI-generated reasoning for why this matters.
+- **Key Contacts**: Recommended personas to reach out to.
+- **Quick Links**: Direct links back to the SignalArk Account or CRM record.
+
+## Play Template Routing
+
+Slack is a primary destination for SignalArk's **Play Templates**.
+
+You can map specific templates to specific channels. For example:
+- Send `competitive_co_mention` plays to `#sales-competitive-intel`.
+- Send `funding_event_alert` plays to `#sales-outbound`.
+- Send `exec_leadership_hire` plays directly to the assigned account owner via DM.

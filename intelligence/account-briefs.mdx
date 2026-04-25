@@ -1,0 +1,47 @@
+---
+title: "Account Activation Briefs"
+description: "Generate comprehensive, evidence-backed decision assets for high-value accounts."
+---
+
+Account Activation Briefs go beyond the quick context of a "Why Now Brief". They are highly structured, deeply researched decision assets meant for executive alignment, deal champions, and complex sales motions.
+
+*Note: Account Briefs are a Growth Tier feature.*
+
+## 4 Brief Types
+
+You can generate four distinct types of briefs, depending on the account's current situation:
+1. **Executive Change**: Tailored for new leadership transitions.
+2. **Competitive Displacement**: Focuses on competitor vulnerabilities and tech overlap.
+3. **Cyber Risk**: Highlights security postures, compliance deadlines, and exposure.
+4. **Growth Expansion**: Centers on funding, hiring surges, and market expansion.
+
+## Quality Tiers & Safe-to-Send
+
+Not all briefs are created equal. SignalArk uses a multi-stage evaluation pipeline to ensure quality. Every claim in the brief must be backed by evidence.
+
+Briefs are categorized into three quality tiers:
+- **Full Brief (≥ 60)**: Comprehensive, fully supported by direct evidence.
+- **Summary Only (40-59)**: Useful context, but lacks enough direct evidence for a full brief.
+- **Blocked (< 40)**: Not enough data. Generation is blocked to prevent hallucinations.
+
+Each claim within the brief is evaluated for a `safeToSend` flag to prevent generic or unverified AI content from reaching prospects.
+
+## Persona Overlays
+
+Briefs are persona-aware. Using a deterministic client-side rendering engine (meaning no extra LLM costs or latency), you can overlay specific framing for:
+- **CFO** (Focus on ROI, cost consolidation)
+- **CISO** (Focus on risk mitigation, compliance)
+- **CRO** (Focus on revenue acceleration, time-to-market)
+- **VP Product** (Focus on roadmap acceleration, technical debt)
+
+## Delivery & Sharing
+
+Once generated and approved by a rep, briefs are frozen and can be shared externally via:
+- **Hosted Secret Link**: A beautiful, unbranded web page (`/brief/{slug}?token=...`).
+- **PDF Export**: Generate a clean, structured PDF.
+- **Email Summary**: Send a digestible version to your internal team.
+- **CRM Push**: Push the brief directly to HubSpot or Salesforce as a structured note.
+
+<Note>
+**Credit Cost:** Generating a full Account Activation Brief uses a more powerful model (Gemini 2.5 Pro) and costs **3 credits**.
+</Note>

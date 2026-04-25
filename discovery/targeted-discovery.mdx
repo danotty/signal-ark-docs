@@ -1,0 +1,34 @@
+---
+title: "Targeted Discovery"
+description: "Active, account-first signal scanning powered by Exa AI."
+---
+
+<Warning>
+**Admin Only Feature:** Targeted Discovery is a high-power, credit-intensive pipeline currently gated behind a feature flag and requires the `signals:create` RBAC permission.
+</Warning>
+
+Unlike the continuous, passive web monitoring of the standard Market Radar, **Targeted Discovery** is an *active, account-first* scanning pipeline. It iterates over your prioritized accounts and actively hunts for specific signals on the live web.
+
+## The Architecture
+
+Targeted Discovery runs on a highly resilient, asynchronous **QStash worker pipeline**. This allows it to handle massive batches of accounts, respect provider rate limits, and resume gracefully if interrupted.
+
+### Progressive Exa AI Query Packs
+Instead of running one generic search, the engine uses 3 tiers of Progressive Query Packs. If Tier 1 (high precision, low recall) fails to find a signal, it gracefully falls back to Tier 2, and then Tier 3, ensuring maximum coverage while optimizing token spend. It actively searches across 9 core signal families.
+
+### 4-Dimension Candidate Evaluation
+When Exa AI returns a candidate URL, it isn't immediately accepted. The LLM Evaluator scores the candidate across 4 dimensions:
+
+1. **Name Match:** Does the text actually refer to the target company?
+2. **Domain Match:** Does the context align with the company's domain?
+3. **Context Consistency:** Is the event described logically consistent?
+4. **Signal Quality:** Is this a high-value signal or just SEO spam?
+
+A candidate must score a minimum of **60/100** to proceed.
+
+### 4-Layer Deduplication
+To ensure you never see the same signal twice, candidates pass through a 4-layer dedup firewall before insertion:
+1. Exact URL Match
+2. Semantic Title Similarity
+3. Payload SHA-256 Fingerprinting
+4. Recent Time-Window Exclusion (prevents logging the same event multiple times in a week)

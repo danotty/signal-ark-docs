@@ -1,0 +1,29 @@
+---
+title: "Deals & Pipeline"
+description: "Manage opportunities and track signal attribution to closed-won revenue."
+---
+
+SignalArk provides an integrated Kanban board to manage active opportunities directly alongside the intelligence that created them.
+
+## The Pipeline Board
+
+Navigate to **Deals** to view your pipeline. The board supports standard, customizable SaaS sales stages:
+- Prospecting
+- Qualification
+- Proposal
+- Negotiation
+- Closed Won / Closed Lost
+
+You can drag and drop deals between stages, update the expected close dates, and manage deal probabilities.
+
+## Creating Deals from Intelligence
+
+Deals in SignalArk are tightly coupled with the account timeline. You can create a deal directly from an Account view, an active GTME Play, or a Next Best Action recommendation. 
+
+When a deal is created, it is automatically linked to the account and the underlying signal that initiated the engagement.
+
+## Signal-to-Deal Attribution
+
+The ultimate goal of SignalArk is to prove that high-intent signals lead to revenue. 
+
+Because deals are linked to signals (`signalId` foreign key on the `deals` table), the Analytics dashboard and **Revenue Signal Proof** engine can draw a direct line from a detected event (e.g., a competitor complaint on X) to an enrolled sequence, a booked meeting, and finally, a `closed_won` deal. This closed-loop reporting proves the ROI of intent-based selling.

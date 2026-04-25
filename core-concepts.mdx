@@ -1,0 +1,42 @@
+---
+title: "Core Concepts"
+description: "Understand the foundational primitives that power SignalArk."
+---
+
+SignalArk operates on a set of core primitives that combine to deliver actionable GTM intelligence.
+
+### Signals
+Signals are instances of activity or events detected across the internet. SignalArk monitors **15+ sources**, including job postings, news articles, social media, tech stack installations, and web tracking pixels. Signals are grouped into **families** (e.g., funding, hiring, executive changes) for consistent scoring and play routing.
+
+### Accounts
+Accounts represent the target companies you are tracking. SignalArk automatically builds and maintains **firmographic profiles** using our multi-tier enrichment waterfall (prioritizing TCA, falling back to PDL). Accounts are evaluated against your defined **ICP scoring criteria** to ensure you only focus on qualified opportunities.
+
+### Intent Scoring
+SignalArk uses a comprehensive **5-dimension scoring model** to prioritize accounts:
+- **Freshness**: How recent the activity is.
+- **ICP Fit**: How well the company matches your Ideal Customer Profile.
+- **Compounding**: The exponential impact of multiple signals occurring in proximity.
+- **Intent**: The strength of the buyer's implicit or explicit interest.
+- **Actionability**: How practical it is to craft an outreach angle around the event.
+
+### Signal Decay
+Intent doesn't last forever. Our **Signal Decay** engine applies time-based score reduction with configurable half-lives per signal type. For example, a funding round might stay relevant for 60 days, while a competitor complaint on social media decays sharply over 7 days.
+
+### Intelligence Lenses
+A single signal can mean different things depending on your GTM motion. SignalArk provides context-specific **Intelligence Lenses**:
+- **sales_pipeline**: Your primary SaaS motion and default view.
+- **competitive_intel**: Tracks competitor threats, product overlap, and displacement opportunities.
+- **investor_intel**: VC/PE focus, detecting funding rounds, hiring surges, and investment-grade signals.
+- **cyber_radar**: Specialized insights around security risks and compliance exposures.
+
+### GTME Plays
+**Go-To-Market Execution (GTME) Plays** are structured, advisory recommendations overlaid on top of account scoring. SignalArk includes 7 native play types (e.g., *Competitor Crisis Displacement*, *Executive Change Window*). They detect specific evidence patterns and assign confidence scores to recommend a targeted outreach strategy.
+
+### Credits
+Certain advanced actions—like generating AI "Why Now" Briefs or running Targeted Discovery scans—consume **Credits** which map to underlying LLM and data provider costs. SignalArk allocates credits based on your tier limits:
+- **Starter**: 50 credits/month
+- **Growth**: 500 credits/month
+- **Pro**: 2,000 credits/month
+
+### Workspaces
+SignalArk provides strict **multi-tenant isolation** using Workspaces. Every customer operates in their own secure environment, ensuring that account lists, integrations, and scoring calibrations are entirely separate.

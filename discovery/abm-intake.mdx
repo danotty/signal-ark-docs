@@ -1,0 +1,45 @@
+---
+title: "ABM Intake Pipeline"
+description: "Import, resolve, and enrich your target accounts using the advanced Account Intake engine."
+---
+
+The **ABM Intake Pipeline** allows you to seamlessly bring external target account lists into SignalArk, instantly turning static spreadsheets into monitored, intelligence-rich entities.
+
+## Intake Modes
+
+You can initiate a new intake batch using one of three modes:
+
+1. **CSV Upload:** Map your existing spreadsheets (supports flexible header detection for domains, names, and LinkedIn URLs).
+2. **Paste Domains:** Rapidly paste a list of up to 1,000 domains.
+3. **Manual Entry:** Build a quick list right in the UI before submitting.
+
+## Multi-Tier Resolution Matching
+
+SignalArk doesn't just blindly create duplicate records. The Intake Engine uses a multi-tier resolution system to match your imports against the existing database, preventing duplicates and preserving historical signal context.
+
+| Match Tier | Confidence Score | Description |
+|---|---|---|
+| **Exact Domain** | `1.00` | Perfect match on the company's primary website domain. |
+| **LinkedIn URL** | `0.85` | Perfect match on the normalized LinkedIn Company URL. |
+| **Domain-Derived Name** | `0.65` | Fuzzy match comparing the stripped domain to the company name. |
+| **Exact Name** | `0.55` | Perfect match on the raw company name string. |
+| **Create New** | `N/A` | No match found; a net-new account is created. |
+
+<Tip>
+Matches with a confidence score below `0.70` are flagged with a `needs_review` status, allowing your operators to manually verify the match before merging.
+</Tip>
+
+## Staged Enrichment Tiers
+
+To help you manage credit consumption, the intake process offers four selectable enrichment tiers:
+
+1. **Resolve Only (Free):** Maps accounts to the DB and normalizes data. Consumes 0 credits.
+2. **Resolve & Enrich:** Fetches missing firmographic data via TheCompaniesAPI (TCA) and PDL. Consumes 1 credit per net-new or stale account.
+3. **Resolve, Enrich & Score:** Includes full ICP scoring and intent calibration post-enrichment.
+4. **Full Pipeline:** Runs the complete stack, including auto-detecting GTME Plays immediately after import.
+
+## Signal Hydration
+
+The magic of the ABM Intake engine happens immediately after resolution. The **Signal Hydration** step scans SignalArk's vast historical index and instantly attaches any past market signals or social engagements to your newly imported accounts. 
+
+Your batch history view provides detailed visibility into this, showing exactly how many accounts in your spreadsheet suddenly have actionable signals attached to them.

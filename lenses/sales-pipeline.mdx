@@ -1,0 +1,62 @@
+---
+title: "Sales Pipeline"
+description: "The default intelligence lens focused on driving standard B2B SaaS and Cyber sales motions."
+---
+
+The **Sales Pipeline** lens is the default view in SignalArk. It continuously monitors the market for growth, intent, and structural changes across your target accounts, delivering actionable signals directly into your daily workflow.
+
+## Overview
+
+Unlike raw data feeds, the Sales Pipeline lens applies rigorous classification and multi-dimensional scoring to ensure only the highest-quality intent signals reach your desk. It supports two primary scoring wedges: **SaaS Growth** and **Cyber Risk**, each with its own tailored signal taxonomy.
+
+<CardGroup cols={2}>
+  <Card title="Market Radar Feed" icon="radar">
+    The central inbox for scored signals, providing a unified chronological view of market intent across your target accounts.
+  </Card>
+  <Card title="CRM Push" icon="cloud-arrow-up">
+    Push qualified signals directly to HubSpot or Salesforce as structured, persona-aware notes.
+  </Card>
+</CardGroup>
+
+## Signal Families & Taxonomy
+
+The lens tracks over 34 distinct signal families, organized by strategic categories.
+
+### SaaS Growth Signals (22+ Families)
+- **Funding & Financial:** `funding_round`, `revenue_milestone`, `acquisition`
+- **Hiring & Growth:** `headcount_growth`, `department_hiring_surge`, `executive_hire`
+- **Expansion & Geography:** `office_expansion`, `international_launch`
+- **Product Motion:** `product_launch`, `major_update`
+- **Tech & Competitive:** `tech_stack_addition`, `competitor_displacement`
+
+### Cyber Signals (12+ Families)
+- **Incident & Breach:** `data_breach`, `ransomware_attack`, `vulnerability_disclosure`
+- **Compliance & Regulatory:** `compliance_audit`, `regulatory_fine`
+- **Security Posture:** `ciso_hire`, `security_tool_eval`
+
+## 5-Dimension Scoring Model
+
+Every detected signal is evaluated against a 5-dimension scoring model to calculate its overall priority:
+
+1. **Intent (0-30):** How strongly does this indicate buying intent?
+2. **Actionability (0-25):** How easy is it for a rep to act on this right now?
+3. **Significance (0-20):** How impactful is this event to the business?
+4. **Freshness (0-15):** Recency decay model (signals lose value over time).
+5. **Compounding (0-10):** Does this signal align with other recent signals on the account?
+
+## Priority Bands
+
+Signals are categorized into Priority Bands based on their total composite score:
+
+- **P1 (Critical):** Score ≥ 80. Immediate action required.
+- **P2 (High):** Score 60-79. Strong intent, prime for outreach.
+- **P3 (Medium):** Score 40-59. Monitor and nurture.
+- **P4 (Low):** Score < 40. Background intelligence.
+
+## CRM Push Guardrails
+
+SignalArk enforces strict content quality guardrails before allowing a signal to be pushed to your CRM. This ensures your CRM data remains clean and trustworthy.
+
+<Tip>
+A signal must score ≥ 40 and pass the **Generic Fallback Content** checks to be eligible for CRM push. If the AI-generated "Why Now" summary or outreach angle is flagged as generic, the push will be blocked to prevent low-quality data entry.
+</Tip>

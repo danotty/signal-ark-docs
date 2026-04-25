@@ -1,0 +1,21 @@
+---
+title: "Authentication"
+description: "How to authenticate requests to the SignalArk API."
+---
+
+The SignalArk API supports two modes of authentication depending on your use case.
+
+## 1. API Keys (Server-to-Server)
+
+For automated scripts, integrations, and external ingestion partners, use API Keys.
+
+API Keys in SignalArk always begin with the `sak_` prefix.
+
+### Managing API Keys
+1. Go to **Settings > Security > API Keys**.
+2. Click **Generate New Key**.
+3. Assign the appropriate scopes (e.g., `signals:write`).
+4. Copy the key securely; you will not be able to see it again.
+
+### Using API Keys
+Include the key in the `Authorization` header of your HTTP requests:

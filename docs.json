@@ -1,0 +1,141 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "Signal Ark",
+  "logo": {
+    "light": "/logo-wordmark-light.svg",
+    "dark": "/logo-wordmark-dark.svg"
+  },
+  "favicon": "/favicon.svg",
+  "colors": {
+    "primary": "#7C3AED",
+    "light": "#8B5CF6",
+    "dark": "#5B21B6"
+  },
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Getting Started",
+            "pages": [
+              "introduction",
+              "quickstart",
+              "core-concepts"
+            ]
+          },
+          {
+            "group": "Core Workflow",
+            "pages": [
+              "accounts/adding-accounts",
+              "accounts/enrichment",
+              "accounts/icp-scoring",
+              "signals/signal-sources",
+              "signals/signal-scoring",
+              "signals/signal-timeline",
+              "signals/keyword-listening",
+              "outreach/sequences",
+              "outreach/ai-messages",
+              "outreach/templates",
+              "deals/pipeline"
+            ]
+          },
+          {
+            "group": "Intelligence Features",
+            "pages": [
+              "intelligence/gtme-plays",
+              "intelligence/why-now-briefs",
+              "intelligence/account-briefs",
+              "intelligence/next-best-actions",
+              "intelligence/monday-8",
+              "intelligence/play-templates"
+            ]
+          },
+          {
+            "group": "Social Signals",
+            "pages": [
+              "social/overview",
+              "social/champion-tracking",
+              "social/competitive-displacement",
+              "social/warm-leads",
+              "social/use-cases"
+            ]
+          },
+          {
+            "group": "Intelligence Lenses",
+            "pages": [
+              "lenses/sales-pipeline",
+              "lenses/competitive-intel",
+              "lenses/investor-intel",
+              "lenses/cyber-radar"
+            ]
+          },
+          {
+            "group": "Discovery & Import",
+            "pages": [
+              "discovery/abm-intake",
+              "discovery/lookalike",
+              "discovery/targeted-discovery",
+              "discovery/company-directory"
+            ]
+          },
+          {
+            "group": "Integrations",
+            "pages": [
+              "integrations/hubspot",
+              "integrations/salesforce",
+              "integrations/slack",
+              "integrations/webhooks",
+              "integrations/external-ingestion"
+            ]
+          },
+          {
+            "group": "Settings & Admin",
+            "pages": [
+              "settings/billing",
+              "settings/team",
+              "settings/security",
+              "settings/gdpr"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "API Reference",
+        "openapi": "openapi.yaml",
+        "groups": [
+          {
+            "group": "API Reference",
+            "pages": [
+              "api-reference/authentication",
+              "api-reference/signals-ingest",
+              "api-reference/social-ingest",
+              "api-reference/signals-feedback",
+              "api-reference/signals-validate"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Sign In",
+        "href": "https://www.signalark.app/login"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Get Started",
+      "href": "https://www.signalark.app/get-started"
+    }
+  },
+  "footer": {
+    "socials": {
+      "x": "https://x.com/signalark",
+      "linkedin": "https://linkedin.com/company/signalark"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+---
+title: "Validate Signals (Pre-flight)"
+openapi: "POST /v1/signals/validate"
+description: "Validate signal payloads without persisting them."
+---
+
+The validation endpoint allows you to test your ingestion payloads during development without polluting the SignalArk database.
+
+It accepts the exact same schema as `POST /v1/signals/ingest`.
+
+### Behavior
+- Runs full Zod schema validation.
+- Checks enum values (like `signal_source`).
+- Simulates account matching to see if `company_domain` formatting is acceptable.
+- **Does not** persist signals.
+- **Does not** trigger the AI classification pipeline.
+- **Does not** consume rate limits or credits.
+
+### Response
+
+Returns a detailed breakdown of which items in your batch passed validation and the specific error messages for those that failed.

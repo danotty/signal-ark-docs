@@ -1,0 +1,40 @@
+---
+title: "ICP Scoring & Profiles"
+description: "Configure Ideal Customer Profiles and understand multi-dimensional fit scoring."
+---
+
+SignalArk uses configurable Ideal Customer Profiles (ICPs) to determine how well an account matches your target market. This score serves as a multiplier for signal intent—a strong signal from a poor-fit account is noise, but a weak signal from a perfect-fit account is a prime opportunity.
+
+## Configuring ICP Dimensions
+
+You can define multiple ICP profiles for different product lines or regions. Each profile evaluates accounts across several dimensions:
+
+- **Firmographics:** Industry verticals, Employee count ranges, and Estimated revenue.
+- **Geographics:** Target regions and countries.
+- **Technographics:** Required technologies (for complementary products) or competitor installations (for displacement plays).
+- **Funding & Growth:** Specific funding stages or growth velocity metrics.
+
+## Scoring Tiers
+
+The multi-dimensional scoring engine outputs an overall ICP Fit Score from 0 to 100, which is categorized into tiers:
+
+<CardGroup cols={2}>
+  <Card title="Ideal (80-100)" icon="star">
+    Perfect match across almost all dimensions. Signals from these accounts are heavily prioritized.
+  </Card>
+  <Card title="Strong (60-79)" icon="check">
+    Good match on core dimensions. Solid targets for standard outreach.
+  </Card>
+  <Card title="Moderate (40-59)" icon="circle-half-stroke">
+    Partial match. Monitored for strong signals before manual review.
+  </Card>
+  <Card title="Weak & Poor (&lt;40)" icon="xmark">
+    Outside your target market. Signals are deprioritized or suppressed to reduce noise.
+  </Card>
+</CardGroup>
+
+## Automated Calibration
+
+The ICP engine isn't static. SignalArk runs **Automated Calibration Runs** that analyze your won deals, accepted signals, and user feedback (e.g., when reps mark signals as "Not a fit"). 
+
+The calibration engine recommends weight adjustments to your ICP dimensions to better reflect reality. You can review and apply these adjustments to continuously refine your targeting precision.

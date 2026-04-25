@@ -1,0 +1,27 @@
+---
+title: "Security Settings"
+description: "Configure SSO, API keys, and platform security policies."
+---
+
+SignalArk provides enterprise-grade security controls to protect your GTM intelligence.
+
+## Single Sign-On (SSO)
+
+Pro tier customers can enforce SAML/SSO for their workspace.
+1. Navigate to **Settings > Security > SSO**.
+2. Input your Identity Provider (IdP) Metadata URL or XML.
+3. Map the required attributes (Email, Name).
+4. Toggle **Enforce SSO** to require all workspace members to authenticate via your IdP.
+
+## Security Policies
+
+Admins can enforce strict security policies across the workspace:
+- **Session Timeout**: Automatically log out users after a period of inactivity.
+- **Password Requirements**: Enforce length, complexity, and rotation rules for non-SSO users.
+- **IP Allowlisting**: Restrict SignalArk access to corporate VPN IPs.
+
+## Audit Trail
+
+Every state change, data export, and security event in SignalArk is logged in the immutable **Audit Trail**. 
+
+Auditors and Admins can query the audit log by category (e.g., `data_mutation`, `security`, `export`) to monitor platform usage and investigate incidents.

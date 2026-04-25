@@ -1,0 +1,42 @@
+---
+title: "Warm Leads & Auto-Promotion"
+description: "Understand the warmth scoring model and how social engagements become CRM pipeline."
+---
+
+Not all social engagements are equal. A "Like" is less valuable than a detailed reply or a direct mention. SignalArk uses a **Warmth Scoring** model to quantify social intent.
+
+## The Warmth Scoring Model
+
+Warmth scores (0-100) are calculated using:
+1. **Base Score**: Determined by the `engagement_type` (e.g., a "mention" has a higher base score than a "like").
+2. **Recency Decay**: The score degrades quickly over time. An engagement from yesterday is much warmer than one from last month.
+3. **Repeat Multiplier**: If the same person engages multiple times, their warmth score compounds.
+
+*Note: Ingestion partners can optionally provide a `warmth_hint` to override the base score if they have deeper context on the interaction.*
+
+## Auto-Promotion to Pipeline
+
+SignalArk removes the manual work of triaging social feeds by automatically promoting the best leads.
+
+An engagement is automatically promoted to your pipeline if it meets two strict criteria:
+1. **ICP Match Tier**: The resolved company must match your ICP as `ideal` or `strong`.
+2. **Warmth Threshold**: The calculated Warmth Score must be **≥ 70**.
+
+When a lead is promoted, SignalArk automatically:
+- Creates the **Account**.
+- Creates the **Contact** (using PDL enrichment if needed).
+- Creates a unified **Signal** on the account timeline.
+- Sets `promotedToPipeline=true` on the event.
+
+## CRM Push Eligibility
+
+To ensure your CRM isn't cluttered with junk, social leads have a stricter push gate than standard market signals. 
+
+A social lead can only be pushed to HubSpot or Salesforce if:
+- Warmth Score is **≥ 75**.
+- ICP tier is `ideal` or `strong`.
+- The lead has not been dismissed.
+- The engager's company is known.
+- The company domain is successfully resolved.
+- The combined content of the post and engagement is ≥ 20 characters.
+- The content passes our deterministic **generic-content guardrails** (it must not look like generic AI slop).

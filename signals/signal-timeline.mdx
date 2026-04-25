@@ -1,0 +1,31 @@
+---
+title: "Unified Signal Timeline"
+description: "View all account activity in a single, stacked timeline."
+---
+
+The core philosophy of SignalArk is **Detect → Stack → Route**. The "Stack" phase is visualized in the **Unified Signal Timeline**, providing sales reps with a complete narrative of an account's intent journey.
+
+## The Stacking Effect
+
+Evaluating a single signal in isolation often leads to low conversion rates. SignalArk aggregates data from multiple distinct tables into a single chronological view:
+
+- **Core Signals** (`signals` table)
+- **Market Intelligence** (`market_radar_signals` table)
+- **Social Engagements** (`social_engagement_events` table)
+
+When multiple signals occur within a short window, the timeline visually highlights the **Compounding Score**. 
+
+<Card title="Source Diversity Indicator" icon="layer-group">
+  Ten signals from a single job board are less valuable than three signals across a job board, a news article, and a GitHub star. The timeline calculates and displays a **Source Diversity** metric to highlight true organizational momentum.
+</Card>
+
+## Component: CompanySignalTimeline
+
+When reviewing an account, navigate to the **Signal Timeline** tab. Here you will see:
+
+- A chronological feed of all intent events.
+- Source-tagged badges (e.g., `funding`, `github`, `news`).
+- Inline summaries of why the signal matters.
+- A visualization of the account's total intent score over time.
+
+This timeline serves as the foundational evidence base when reps generate AI-powered "Why Now" Briefs or personalize their outreach sequences.

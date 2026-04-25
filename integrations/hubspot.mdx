@@ -1,0 +1,54 @@
+---
+title: "HubSpot Integration"
+description: "Connect SignalArk with HubSpot CRM for bidirectional syncing and intelligent note pushing."
+---
+
+SignalArk’s HubSpot integration allows you to seamlessly push high-intent buyer signals to your CRM and maintain synchronized account and contact data.
+
+## Connection & OAuth Flow
+
+The HubSpot integration uses a public app OAuth flow. 
+
+1. Navigate to **Settings > Integrations**.
+2. Click **Connect** under HubSpot.
+3. You will be redirected to HubSpot to authorize the SignalArk app.
+4. Upon authorization, you will be redirected back to SignalArk (`https://www.signalark.app/_api/auth/hubspot_callback`).
+
+SignalArk requests the following scopes to function properly:
+- `crm.objects.companies.read`
+- `crm.objects.companies.write`
+- `crm.objects.contacts.read`
+- `crm.objects.contacts.write`
+- `crm.objects.deals.read`
+- `crm.objects.deals.write`
+- `crm.schemas.contacts.read`
+- `crm.schemas.companies.read`
+- `crm.schemas.deals.read`
+
+<Note>
+OAuth tokens are managed per-workspace. SignalArk automatically refreshes your access token in the background using the securely stored refresh token.
+</Note>
+
+## Bidirectional Sync
+
+Once connected, you can configure bidirectional syncing:
+- **Pull from HubSpot**: Ingest your CRM companies and contacts into SignalArk for enrichment and monitoring.
+- **Push to HubSpot**: Auto-create or update HubSpot companies and contacts when new signals are promoted in SignalArk.
+- **Full Sync**: Keeps data aligned in both directions.
+
+Object mappings are stored in SignalArk and can be reviewed in the Integration Manager.
+
+## Intelligent CRM Push
+
+The core value of the integration is the **CRM Push** feature, which allows you to push signals directly from the Market Radar, Social Signals, or Account views.
+
+When you push a signal:
+1. SignalArk resolves or creates the Company in HubSpot.
+2. SignalArk resolves or creates the Contact in HubSpot.
+3. SignalArk creates a highly contextual **Note** attached to both objects.
+
+### Content Quality Guardrails
+
+To ensure your CRM isn't cluttered with generic AI text, SignalArk enforces strict deterministic guardrails on every push:
+- Only accounts with a valid company name and domain are eligible.
+- AI-generated "Why Now" summaries and outreach angles are checked against known generic patterns (e.g., "This company is growing"). If the content is flagged as generic, the push is blocked to maintain high CRM data quality.

@@ -1,0 +1,52 @@
+---
+title: "Investor Intelligence"
+description: "A specialized lens designed for VC and PE deal sourcing."
+---
+
+The **Investor Intelligence** lens transforms SignalArk from a sales tool into a powerful deal-sourcing engine for Venture Capital and Private Equity firms. It detects investment-grade signals to help you identify high-growth companies before they hit the mainstream radar.
+
+## Core Signal Families
+
+The investor lens focuses on 8 distinct, high-value signal families:
+
+1. `funding_round`: Undisclosed or early-stage capital injection indicators.
+2. `hiring_surge`: Rapid headcount growth, specifically in engineering or GTM roles.
+3. `international_expansion`: Opening offices in new geographic markets.
+4. `product_launch`: Major V2 launches or pivot indicators.
+5. `executive_hire`: Bringing on experienced, late-stage executives.
+6. `partnership_channel`: Strategic alliances with enterprise players.
+7. `revenue_signal`: Milestone announcements or ARR crossing indicators.
+8. `risk_indicator`: Layoffs, executive flight, or negative market sentiment.
+
+## 5-Dimension Scoring Model
+
+The scoring engine evaluates the attractiveness of an investment opportunity across 5 dimensions, resulting in a `totalInvestmentScore` (0-100):
+
+- **Growth Trajectory (0-30):** Velocity of hiring, web traffic, and developer activity.
+- **Market Timing (0-20):** Alignment with macro trends and recent competitor funding.
+- **Team Strength (0-20):** Caliber of recent executive hires and founder pedigree.
+- **Product Maturity (0-15):** Indications of enterprise readiness and tech stack evolution.
+- **Risk Assessment (0-15):** Negative weighting for churn, layoffs, or regulatory issues.
+
+## Priority Bands
+
+Companies are categorized into investment priority bands based on their total score:
+
+<Steps>
+  <Step title="Prime Opportunity (80+)">
+    Immediate review required. The company exhibits compounding hyper-growth signals.
+  </Step>
+  <Step title="Strong Prospect (60-79)">
+    High potential. Add to the active monitoring pipeline.
+  </Step>
+  <Step title="Monitor (40-59)">
+    Early indicators of traction. Needs more data to build conviction.
+  </Step>
+  <Step title="Early Stage (&lt;40)">
+    Background tracking. No immediate action needed.
+  </Step>
+</Steps>
+
+<Tip>
+The Investor Intel lens operates entirely on the `marketRadarSignals` table under the hood, using the `wedgeType='investor_intel'` discriminator to keep your deal sourcing data isolated from standard sales pipelines.
+</Tip>

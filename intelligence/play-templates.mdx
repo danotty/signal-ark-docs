@@ -1,0 +1,29 @@
+---
+title: "Play Templates (Routing)"
+description: "Automatically route high-value signals to Slack or Webhooks."
+---
+
+While GTME Plays act as an advisory layer for account strategy, **Play Templates** act as a direct routing layer for immediate delivery.
+
+Play Templates automatically evaluate incoming signals and push them to your preferred delivery destinations (Slack or Webhooks) the moment they are detected.
+
+## The 5 Pre-Built Templates
+
+SignalArk provides 5 out-of-the-box routing templates:
+
+1. **Executive Leadership Hire**: Triggers when a VP or C-level job posting is detected. Evaluates over a 14-day window.
+2. **Funding Event Alert**: Triggers on new funding round signals. Evaluates over a 7-day window.
+3. **Competitive Co-Mention**: Triggers when an account is mentioned in the news alongside a known competitor. Evaluates over a 7-day window.
+4. **High Intent Keyword Match**: Triggers when a user-defined keyword rule matches on news or web sources. Evaluates over a 7-day window.
+5. **Tech Stack Signal**: Triggers when a job posting mentions a competitor's technology.
+
+## Configuration & Delivery
+
+To set up a Play Template:
+1. Navigate to **Plays > Templates**.
+2. Select one of the pre-built templates.
+3. Choose a destination (e.g., a specific Slack channel like `#sales-signals`, or a custom Webhook URL).
+4. Activate the play.
+
+### The Routing Pipeline
+When Flint ingests signals, or the internal cron jobs collect new data, the signals pass through a post-ingestion pipeline. **Stage 4** of this pipeline automatically evaluates all active Play Templates. If a signal matches, it is immediately dispatched to the configured delivery logs and sent to the destination.
