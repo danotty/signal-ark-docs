@@ -87,7 +87,8 @@
               "integrations/salesforce",
               "integrations/slack",
               "integrations/webhooks",
-              "integrations/external-ingestion"
+              "integrations/external-ingestion",
+              "integrations/mcp-server"
             ]
           },
           {

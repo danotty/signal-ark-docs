@@ -1,0 +1,175 @@
+---
+title: "MCP Server"
+description: "Connect SignalArk to Claude, ChatGPT, Cursor, and other AI clients via the Model Context Protocol."
+---
+
+## Overview
+
+SignalArk exposes a **Model Context Protocol (MCP) server** that lets AI assistants like Claude, ChatGPT, and Cursor query your signal intelligence directly. Instead of switching between your AI client and the SignalArk dashboard, you can ask questions like "Which accounts should I focus on today?" and get evidence-backed answers sourced from your own signal data.
+
+<Info>
+  MCP access is available on the **Pro tier**. Generate your MCP token in **Settings → Integrations → MCP Server**.
+</Info>
+
+## What You Can Do
+
+<CardGroup cols={2}>
+  <Card title="Account Prioritization" icon="ranking-star">
+    Ask "Which accounts are moving now?" and get ranked accounts with ICP scores, signal counts, and active plays.
+  </Card>
+  <Card title="Signal Search" icon="magnifying-glass">
+    Search your market radar signals by keyword, category, confidence threshold, or date range.
+  </Card>
+  <Card title="Outreach Drafts" icon="pen-to-square">
+    Generate personalized outreach messages grounded in real signal evidence. Drafts only — never auto-sends.
+  </Card>
+  <Card title="Content Ideas" icon="lightbulb">
+    Get signal-derived LinkedIn content opportunities and generate drafts from your strongest market signals.
+  </Card>
+</CardGroup>
+
+## Setup
+
+### 1. Generate an MCP Token
+
+1. Go to **Settings → Integrations → MCP Server**
+2. Click **Generate MCP Token**
+3. Copy the token — it starts with `sak_`
+
+The token is pre-scoped with `mcp:read` and `mcp:draft` permissions. Keep it secret — it grants read access to your workspace signal data.
+
+### 2. Configure Your AI Client
+
+<Tabs>
+  <Tab title="Claude Desktop">
+    Add to your `claude_desktop_config.json`:
+
+    ```json
+    {
+      "mcpServers": {
+        "signalark": {
+          "url": "https://www.signalark.app/_api/mcp",
+          "headers": {
+            "Authorization": "Bearer sak_YOUR_TOKEN_HERE"
+          }
+        }
+      }
+    }
+    ```
+
+    Restart Claude Desktop. You'll see SignalArk tools available in the tool picker.
+  </Tab>
+  <Tab title="Cursor">
+    Add to your `.cursor/mcp.json`:
+
+    ```json
+    {
+      "mcpServers": {
+        "signalark": {
+          "url": "https://www.signalark.app/_api/mcp",
+          "headers": {
+            "Authorization": "Bearer sak_YOUR_TOKEN_HERE"
+          }
+        }
+      }
+    }
+    ```
+  </Tab>
+  <Tab title="Generic (HTTP)">
+    The MCP endpoint accepts standard JSON-RPC 2.0 over HTTP POST:
+
+    ```
+    POST https://www.signalark.app/_api/mcp
+    Authorization: Bearer sak_YOUR_TOKEN_HERE
+    Content-Type: application/json
+    ```
+  </Tab>
+</Tabs>
+
+## Available Tools
+
+### Read Tools (free, no credits)
+
+| Tool | Description |
+|------|-------------|
+| `search_signals` | Search market radar signals by keyword, category, date range, confidence |
+| `get_signal_detail` | Full detail for a single signal including score explanation and source URLs |
+| `get_recent_high_priority_signals` | Top signals from the last N days sorted by intent score |
+| `get_top_moving_accounts` | Accounts ranked by recent signal activity and ICP fit |
+| `get_account_timeline` | Unified chronological timeline for an account |
+| `explain_account_priority` | Structured explanation of why an account is a priority |
+| `get_account_next_actions` | Next best actions for an account |
+| `get_content_opportunities` | Signal-derived content opportunities |
+
+### Draft Tools (credit-metered)
+
+| Tool | Credits | Description |
+|------|---------|-------------|
+| `generate_outreach_draft` | 1 | Personalized outreach message referencing real signals |
+| `generate_linkedin_draft` | 2 | LinkedIn post draft from a content opportunity |
+
+<Warning>
+  Draft tools generate text for your review — they never send, publish, or persist anything automatically. Always review before using.
+</Warning>
+
+## Example Workflows
+
+### Daily Account Prioritization
+
+```
+You: "Which accounts should I focus on today?"
+
+SignalArk MCP:
+1. get_top_moving_accounts → 8 accounts ranked by signal activity
+2. explain_account_priority → Why Acme Corp is #1 (VP Sales hire + funding round)
+3. get_account_next_actions → 3 recommended actions for Acme Corp
+```
+
+### Competitor Displacement
+
+```
+You: "Find competitor displacement opportunities this week"
+
+SignalArk MCP:
+1. search_signals(category: competitor_dissatisfaction, daysBack: 7)
+2. get_account_timeline → Full signal history for top affected account
+3. generate_outreach_draft → Draft referencing the competitor situation
+```
+
+### Content from Signals
+
+```
+You: "Create LinkedIn post ideas from this week's hiring signals"
+
+SignalArk MCP:
+1. search_signals(category: hiring_driven, daysBack: 7)
+2. get_content_opportunities → Signal-derived content angles
+3. generate_linkedin_draft → Draft with visual recommendation
+```
+
+## Permissions and Safety
+
+- **Workspace-scoped only** — the token only accesses your workspace data
+- **No cross-workspace reads** — workspaceId is always resolved from the token, never accepted as input
+- **No auto-send** — draft tools return text for your review, nothing is sent automatically
+- **No CRM mutations** — write operations are not available in V1
+- **Audit logging** — every tool call is logged in **Settings → Security → Audit Trail**
+
+## Usage Log
+
+Monitor your MCP usage in **Settings → Integrations → MCP Server → Usage Log**. The log shows:
+- Timestamp, tool name, status
+- Credits consumed
+- Response time
+- Client identifier
+
+## Rate Limits
+
+| Tool Type | Limit |
+|-----------|-------|
+| Read tools | 60 calls/min per token |
+| Draft tools | 20 calls/min per token |
+
+## Revoking Access
+
+To revoke an MCP token, go to **Settings → Integrations → MCP Server** and click **Revoke** next to the token. The token is immediately invalidated.
